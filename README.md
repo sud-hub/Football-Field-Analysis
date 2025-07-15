@@ -1,54 +1,50 @@
-# ⚽ Football Analysis Project
+# Football Analysis Project
 
-## 📌 Introduction
+## Introduction
 
-This project aims to detect and track **players**, **referees**, and the **football** from match footage using advanced computer vision techniques.
+This project aims to detect and track players, referees, and the football from match footage using advanced computer vision techniques. The objective is to analyze player movement and team performance by leveraging object detection, clustering, and motion tracking methods.
 
-We leverage **YOLOv5** for object detection and further enhance the system by:
+The pipeline includes:
 
-* Segmenting and clustering jersey colors to **assign players to teams**.
-* Measuring **ball acquisition percentage** per team.
-* Using **optical flow** for camera movement estimation.
-* Applying **perspective transformation** to measure **player speed and distance in meters**.
+* Detecting players and objects using YOLOv5.
+* Assigning players to teams using KMeans clustering on jersey colors.
+* Calculating ball acquisition percentage per team.
+* Estimating camera motion using optical flow.
+* Applying perspective transformation to convert pixel-based tracking into real-world distance.
+* Computing each player's speed and total distance covered during the match.
 
-The goal is to analyze player movements and performance — making this an ideal project for real-world CV applications in sports analytics.
-
----
-
-## 🎯 Key Features
-
-* ✅ **Object Detection**: Detect players, ball, referees using **YOLOv5**
-* 🎽 **Team Identification**: Use **KMeans clustering** on jersey colors
-* ⚽ **Ball Possession Metrics**: Calculate team-wise ball acquisition percentage
-* 🎥 **Optical Flow**: Estimate camera movement for accurate player tracking
-* 🧭 **Perspective Transformation**: Convert pixel movement to real-world meters
-* 🏃 **Player Stats**: Compute **distance covered** and **speed**
+This project brings together multiple computer vision concepts to perform in-depth sports analysis on real-world football videos.
 
 ---
 
-## 🧠 Techniques & Modules Used
+## Key Features
 
-| Module                    | Purpose                                              |
-| ------------------------- | ---------------------------------------------------- |
-| **YOLOv5 (Ultralytics)**  | Real-time object detection (players, ball, referees) |
-| **KMeans Clustering**     | Group players by jersey color to identify teams      |
-| **Optical Flow**          | Track frame-to-frame camera movement                 |
-| **Perspective Transform** | Map pixel movement to real-world scale               |
-| **OpenCV + NumPy**        | Image/video processing, mathematical operations      |
-| **Matplotlib, Pandas**    | Visualization and data handling                      |
+* Object detection using YOLOv5 for players, referees, and the football.
+* Team assignment based on jersey color using KMeans clustering.
+* Possession analysis based on team-wise ball control over time.
+* Player movement analysis with optical flow and motion tracking.
+* Perspective transformation for accurate measurement of real-world distances.
+* Speed and distance metrics computed per player.
 
 ---
 
-## 🏋️ Trained Models
+## Techniques and Libraries Used
 
-* ✅ YOLOv5 trained for player, referee, and ball detection
-* Sample annotated input video included
+| Technique / Library        | Description                                         |
+| -------------------------- | --------------------------------------------------- |
+| YOLOv5 (Ultralytics)       | Object detection for players, ball, referees        |
+| OpenCV                     | Image and video processing                          |
+| KMeans (from scikit-learn) | Clustering pixels to identify team jersey colors    |
+| Optical Flow               | Camera motion estimation across video frames        |
+| Perspective Transform      | Mapping frame coordinates to real-world coordinates |
+| NumPy, Pandas, Matplotlib  | Data handling and visualizations                    |
+| Supervision                | Object tracking and video annotation utilities      |
 
 ---
 
-## 🛠️ Requirements
+## Requirements
 
-Install the following libraries to run the project:
+To run this project, the following libraries are required:
 
 ```bash
 pip install ultralytics opencv-python numpy matplotlib pandas supervision
@@ -56,29 +52,39 @@ pip install ultralytics opencv-python numpy matplotlib pandas supervision
 
 ---
 
-## ▶️ Run the Project
+## Running the Project
+
+Clone the repository and run the main script on your input video:
 
 ```bash
-# Step 1: Clone the repository
 git clone https://github.com/yourusername/football-analysis.git
 cd football-analysis
 
-# Step 2: Run the main script
-python src/main.py --video videos/input/match_sample.mp4
+python src/main.py --video videos/input/sample_match.mp4
 ```
 
----
-
-## 📸 Screenshot
-
-![Demo Output](assets/demo_screenshot.png)
+Ensure you have the trained YOLOv5 model weights placed in the `models/` directory.
 
 ---
 
-## 📈 Future Enhancements
+## Trained Models
 
-* Add player re-identification across multiple cameras
-* Integrate heatmaps and possession charts
-* Deploy as a web dashboard for live analytics
+* YOLOv5 trained for detection of football players, referees, and ball
+* Sample annotated match video is included
+
+---
+Sample Output
+A screenshot or video demo showing player tracking, possession percentages, and calculated distances can be included in the videos/output/ directory.
+
+![Uploading Football.png…]()
+
+
+---
+
+## Future Work
+
+* Add multi-camera tracking and player re-identification.
+* Generate heatmaps for player movement and team formations.
+* Integrate a dashboard for live match analytics and visualization.
 
 ---
