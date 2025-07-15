@@ -52,21 +52,6 @@ pip install ultralytics opencv-python numpy matplotlib pandas supervision
 
 ---
 
-## Running the Project
-
-Clone the repository and run the main script on your input video:
-
-```bash
-git clone https://github.com/yourusername/football-analysis.git
-cd football-analysis
-
-python src/main.py --video videos/input/sample_match.mp4
-```
-
-Ensure you have the trained YOLOv5 model weights placed in the `models/` directory.
-
----
-
 ## Trained Models
 
 * YOLOv5 trained for detection of football players, referees, and ball
@@ -74,11 +59,9 @@ Ensure you have the trained YOLOv5 model weights placed in the `models/` directo
 
 ---
 Sample Output
-A screenshot or video demo showing player tracking, possession percentages, and calculated distances can be included in the videos/output/ directory.
-
-![Uploading Football.png…]()
 
 
+<img width="2468" height="1276" alt="Football" src="https://github.com/user-attachments/assets/06027459-60a2-4ad5-9b6b-e5f818fb84d4" />
 ---
 
 ## Future Work
